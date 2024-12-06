@@ -21,5 +21,3 @@ contenido = os.listdir("./mi_carpeta")
 
 for fichero in contenido:
     print("Fichero: " + fichero)
-
-os.rmdir("./.git") 
