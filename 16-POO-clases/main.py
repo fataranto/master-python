@@ -60,3 +60,10 @@ def acelerarCoche():
 
 # acelerarCoche()
 
+cochePartner = Coche()
+cocheFerrari = Coche()
+
+cocheFerrari.setMarca("Ferrari")
+
+print(cochePartner.getMarca())
+print(cocheFerrari.getMarca())
