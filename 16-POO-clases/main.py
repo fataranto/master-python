@@ -2,6 +2,7 @@
 
 #  Definir una clase
 
+
 class Coche:
     color = "Rojo"
     marca = "Peugeot"
@@ -10,14 +11,43 @@ class Coche:
     caballaje = 500
     plazas = 4
 
+    def setColor(self, color):
+        self.color = color
+
+    def getColor(self):
+        return self.color
+    
+    def setVelocidad(self, velocidad):
+        self.velocidad = velocidad
+
+    def getVelocidad(self):
+        return self.velocidad
+    
+    def setMarca(self, marca):
+        self.marca = marca
+
+    def getMarca(self):
+        return self.marca
+    
+    def setModelo(self, modelo):
+        self.modelo = modelo
+
+    def getModelo(self):
+        return self.modelo
+    
+    def setCaballaje(self, caballaje):
+        self.caballaje = caballaje
+
+    def getCaballaje(self):
+        return self.caballaje
+
     def acelerar(self):
         self.velocidad += 1
 
     def frenar(self):
         self.velocidad -= 1
 
-    def getVelocidad(self):
-        return self.velocidad
+
     
 
 # Crear objetos
@@ -28,4 +58,5 @@ def acelerarCoche():
         coche.acelerar()
         print("Velocidad actual: ", coche.velocidad)
 
-acelerarCoche()
+# acelerarCoche()
+
