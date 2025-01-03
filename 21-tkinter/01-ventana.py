@@ -4,33 +4,55 @@
 from tkinter import *
 import os.path
 
-# Crear la ventana raiz
-ventana = Tk()
+class Programa:
+    def __init__(self):
+        self.title = "Master en Python"
+        self.icon = "./imagenes/favicon.ico"
+        self.icon_alt = "./21-tkinter/imagenes/favicon.ico"
+        self.size = "750x450"
+        self.resizable = False
 
-# Configurar la ventana
-ventana.geometry("800x600") # Tamaño de la ventana
+    def cargar(self):
+        # Crear la ventana raiz
+        ventana = Tk()
+        self.ventana = ventana
 
-# bloquear el tamaño de la ventana
-ventana.resizable(0,0)
+        # Configurar la ventana
+        ventana.geometry(self.size) # Tamaño de la ventana
 
-# Titulo de la ventana
-ventana.title("Hola Mundo")
+        # bloquear el tamaño de la ventana
+        if self.resizable:
+            ventana.resizable(1,1)
+        else:
+            ventana.resizable(0,0)
 
-# Comprobar si un archivo existe
-ruta_icono = os.path.abspath('./imagenes/favicon.ico')
+        # Titulo de la ventana
+        ventana.title(self.title)
 
-if not os.path.isfile(ruta_icono):
-    ruta_icono = os.path.abspath('./21-tkinter/imagenes/favicon.ico')
+        # Comprobar si un archivo existe
+        ruta_icono = os.path.abspath(self.icon)
 
-# Cambiar el icono de la ventana
-ventana.iconbitmap(ruta_icono)
+        if not os.path.isfile(ruta_icono):
+            ruta_icono = os.path.abspath(self.icon_alt)
 
-# Mostar texto en la ventana
-texto = Label(ventana, text=ruta_icono)
-texto.pack()
+        # Cambiar el icono de la ventana
+        ventana.iconbitmap(ruta_icono)
 
+        # Mostar texto en la ventana
+        texto = Label(ventana, text=ruta_icono)
+        texto.pack()
 
+    def addTexto(self, dato):
+        texto = Label(self.ventana, text=dato)
+        texto.pack()
 
-# Arrancar y mostrar la ventana hasta que se cierre
-ventana.mainloop()
+    def mostrar(self):
+        self.ventana.mainloop()
+
+# Instanciar mi programa
+programa = Programa()
+programa.cargar()
+programa.addTexto("Hola soy un texto")
+programa.addTexto("Soy otro texto")
+programa.mostrar()
 
