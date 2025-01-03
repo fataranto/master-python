@@ -18,7 +18,7 @@ class Acciones:
     def mostrar(self, usuario):
         print(f"\nVale {usuario[1]}!! Aquí tienes tus notas:")
 
-        nota = modelo.Nota(usuario[0], "", "")
+        nota = modelo.Nota(usuario[0])
         notas = nota.listar()
 
         for nota in notas:
@@ -26,3 +26,16 @@ class Acciones:
             print(nota[2])
             print(nota[3])
             print("************************************")
+
+    def borrar(self, usuario):
+        print(f"\nOk {usuario[1]}!! Vamos a borrar notas...")
+        titulo = input("Introduce el título de la nota a borrar: ")
+        
+        nota = modelo.Nota(usuario[0], titulo)
+        print(f"{titulo} --- {usuario[0]}")
+        eliminar = nota.eliminar()
+
+        if eliminar[0] >= 1:
+            print(f"\nHemos borrado la nota: {nota.titulo}")
+        else:
+           print(f"\nNo se ha borrado la nota, lo siento {usuario[1]}")
