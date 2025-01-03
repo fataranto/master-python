@@ -37,6 +37,6 @@ class Acciones:
             #print(type(e).__name__)
             print(f"Login incorrecto, intentalo más tarde")
 
-
+    # Definir el método proximasAcciones
     def proximasAcciones(self, usuario):
         return None
