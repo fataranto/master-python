@@ -1,4 +1,5 @@
 import usuarios.usuario as modelo
+import notas.acciones as acciones
 
 class Acciones:
 
@@ -39,4 +40,34 @@ class Acciones:
 
     # Definir el método proximasAcciones
     def proximasAcciones(self, usuario):
-        return None
+        print("""
+        Acciones disponibles:
+        - Crear nota (crear)
+        - Mostrar tus notas (mostrar)
+        - Eliminar nota (eliminar)
+        - Salir (salir)
+        """)
+
+        accion = input("¿Qué quieres hacer?: ")
+        hazEl = acciones.Acciones()
+
+        if accion == "crear":
+            hazEl.crear(usuario)
+            #vuelve a llamar a proximasAcciones
+            self.proximasAcciones(usuario)
+
+        elif accion == "mostrar":
+            hazEl.mostrar(usuario)
+            self.proximasAcciones(usuario)
+
+        elif accion == "eliminar":
+            print("Vamos a eliminar")
+            self.proximasAcciones(usuario)
+
+        elif accion == "salir":
+            print(f"Hasta luego {usuario[1]}!")
+            exit()
+
+        else:
+            print("Acción no reconocida")
+            self.proximasAcciones(usuario)
